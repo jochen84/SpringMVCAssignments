@@ -40,7 +40,7 @@ public class FeverController {
             return "normal-temp";
         }
         if (temp > 37.7) {
-            model.addAttribute("temperature", "Din temperatur är: " + temp + "°C. Du har CORONA!");
+            model.addAttribute("temperature", "Din temperatur är: " + temp + "°C. Du har feber!");
             return "high-temp";
         }
         return "redirect:/fever-input";
