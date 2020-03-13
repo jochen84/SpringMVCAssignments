@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Whats your temp?</title>
+</head>
+<body>
+    <div>
+        <form th:action="@{fever-input}" method="post">
+            <input type="number" step="0.1" id="fever" name="fever" placeholder="Enter your temp.." required/>
+            <button type="submit">Kolla tempen!</button>
+        </form>
+    </div>
+    <div>
+        <h2>Tidigare mätningar:</h2>
+        <ol th:if="${!tempList.isEmpty()}">
+            <li th:each="temperature : ${tempList}">
+                <p th:text="${temperature}"></p>
+            </li>
+        </ol>
+        <div th:unless="${!tempList.isEmpty()}">
+            <p>Inga mätningar gjorda ännu</p>
+        </div>
+    </div>
+</body>
+</html>
