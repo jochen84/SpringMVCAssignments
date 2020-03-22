@@ -21,12 +21,11 @@ public class FeverController {
         return "fever-input";
     }
 
-
     @PostMapping("/fever-input")
-    public String fever(@RequestParam(value = "fever", defaultValue = "0.0") Double fever, Model model) {
+    public String fever(@RequestParam("fever") Double fever, Model model) {
 
         temp = fever;
-        tempList.add("Temperatur: " + String.valueOf(temp) + "°C");
+        tempList.add(String.valueOf(temp));
 
         if (temp == 0.0){
             return "fever-input";
